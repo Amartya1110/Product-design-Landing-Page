@@ -21,62 +21,117 @@ header {
     background-color: #111111;
 }
 
-/* Nav Bar */
+/*==== Nav Bar ====*/
 nav {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around; */
     align-items: center;
-    padding: 30px 150px 50px 50px;
+    padding: 3em 5vw;
+    position: relative;
 }
+
+@media screen and (min-width: 920px) {
+    nav {
+        justify-content: space-between;
+    }
+}
+
+/* Hamburger Menu */
+.ham-menu {
+    width: 2.5em;
+    position: absolute;
+    right: 4em;
+    z-index: 10;
+}
+
+@media screen and (min-width: 920px) {
+    .ham-menu {
+        display: none;
+    }
+}
+
+.menu-bar {
+    height: 0.3em;
+    background-color: #fff;
+    margin: 0.4em 0em;
+}
+
+/* Nav Menu */
 
 .nav-list-items {
     width: 500px;
     list-style: none;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
 }
 
+.toggle-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.9);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* transform: translate(-50%, -50%); */
+    z-index: 9;
+}
+
+@media screen and (min-width: 920px) {
+    .nav-list-items {
+        display: flex;
+    }
+}
+
 .nav-list-item {
     color: #fff;
-    font-size: 15px;
-    font-weight: 500px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.5em;
 }
 
 .nav-list-item>select {
     background-color: #111111;
     border: none;
     color: #fff;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 500;
 }
 
 /* Intro Section */
 .intro {
-    padding: 0px 150px;
+    padding: 0em 3em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .intro-image>img {
-    width: 600px;
+    max-width: 600px;
+    min-width: 320px;
+    width: 90%;
 }
 
 .intro-text {
-    width: 500px;
+    max-width: 500px;
 }
 
 .intro-text>h3 {
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 700;
     color: #c91b28;
 }
 
 .intro-text>h1 {
     color: #fff;
-    font-size: 50px;
+    font-size: 3rem;
     font-weight: 600;
 }
 
@@ -85,16 +140,17 @@ nav {
     font-size: 13px;
     font-weight: 500;
     opacity: 0.9;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
 }
 
 .btn>button {
     padding: 10px 30px;
     color: #fff;
     background-color: #c91b28;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 700;
     border: none;
+    margin-bottom: 2em;
 }
 
 .btn>button:hover {
@@ -104,9 +160,15 @@ nav {
 
 /* ================== Features Section ================= */
 .features {
-    padding: 100px 150px;
+    padding: 3em;
     background-color: #111111;
     position: relative;
+}
+
+@media screen and (min-width: 920px) {
+    .features {
+        padding: 100px 150px;
+    }
 }
 
 .background {
@@ -125,6 +187,7 @@ nav {
 /* feature cards */
 .feature-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     position: relative;
@@ -137,9 +200,12 @@ nav {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 250px;
+    max-width: 250px;
+    min-width: 200px;
     height: 300px;
-    padding: 20px 20px;
+    padding: 1.25em;
+
+    margin: 1em;
 }
 
 .feature-card>img {
@@ -185,10 +251,15 @@ nav {
     margin: 10px 0px;
 }
 
+#feature-card-2-arrow {
+    transform: rotate(90deg);
+}
+
 /* Experience Cards */
 
 .exp-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin-top: 100px;
@@ -198,8 +269,9 @@ nav {
 }
 
 .exp-card {
-    width: 250px;
+    min-width: 250px;
     height: 250px;
+    margin: 1em;
 }
 
 .exp-card-type-1 {
@@ -227,16 +299,17 @@ nav {
 .subcard {
     background-color: #1e1e1e;
     text-align: center;
-    padding: 20px;
+    padding: 1.25em;
+    min-width: 200px;
 }
 
 .subcard>h2 {
     color: #c91b28;
-    font-size: 30px;
+    font-size: 2rem;
 }
 .subcard>h3 {
     color: #fff;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 500;
     opacity: 0.9;
 }
@@ -244,15 +317,29 @@ nav {
 
 /* ================ Projects Section ================ */
 .projects {
-    padding: 50px 150px;
+    padding: 3em 1em;
     background-color: #111111;
 }
 
 .project-intro {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     margin-bottom: 50px;
+    min-width: 250px;
+}
+
+@media screen and (min-width:520px) {
+    .projects {
+        padding: 3em 10vw;
+    }
+}
+
+@media screen and (min-width:920px) {
+    .project-intro {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .project-intro-text * {
@@ -265,6 +352,10 @@ nav {
     opacity: 0.9;
 }
 
+.project-intro-btn {
+    margin: 2em 0em;
+}
+
 /* Project cards */
 .project-cards {
     display: flex;
@@ -274,6 +365,7 @@ nav {
 
 .project-card {
     width: calc((100vw - 300px - 20px - 40px) / 2);
+    min-width: 330px;
 }
 
 .card-img-bg {
@@ -302,7 +394,7 @@ nav {
 
 /* ====================== Contact Section ================= */
 .contact {
-    padding: 50px 150px;
+    padding: 3em 2em;
     background-color: #111111;
 }
 
@@ -311,8 +403,19 @@ nav {
     padding: 50px 40px;
     min-width: fit-content;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+@media screen and (min-width:920px) {
+    .contact {
+        padding: 50px 150px;
+    }
+
+    .contact-content-bg {
+        flex-direction: row;
+    }
 }
 
 .contact-text {
@@ -331,11 +434,15 @@ nav {
     margin-top: 10px;
 }
 
+.contact-btn {
+    margin: 1em;
+}
+
 
 /* =================== Links Section ================== */
 .links {
     background-color: #111111;
-    padding: 30px 150px;
+    padding: 30px 0px;
 }
 
 .link-list {
@@ -343,13 +450,15 @@ nav {
     margin: 0px auto;
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
 }
 
 .link-list-item>a {
     text-decoration: none;
     color: #fff;
+    margin: 1em 1em;
 }
 
 
@@ -372,7 +481,7 @@ footer>img:first-child {
 } */
 
 footer {
-    padding: 30px 150px;
+    padding: 2em 2em;
     background-color: #1e1e1e;
     display: flex;
     align-items: center;
@@ -380,11 +489,25 @@ footer {
     position: relative;
 }
 
+#footer-logo {
+    height: 2.5em;
+}
+
 #social-media-img {
     height: 50px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 0;
 }
 
+@media screen and (min-width: 920px) {
+    footer {
+        padding: 2em 150px;
+    }
+    #social-media-img {
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
